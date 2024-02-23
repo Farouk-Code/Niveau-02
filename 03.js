@@ -1,3 +1,5 @@
+// Arguments à l'envers
+
 if (process.argv.length < 2) {
     console.log("Erreur");
 } else {

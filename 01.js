@@ -1,3 +1,5 @@
+// Combinaison de 3 chiffres
+
 function combination() {
     let result = '';
     for (let i = 0; i <= 9; i++) {
