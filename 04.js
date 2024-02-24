@@ -6,7 +6,6 @@ if (process.argv.length != 3) {
     console.log("-1");
 } else {
     let element = parseInt(process.argv[2]);
-    // let element = 3;
     let tableauFibo = [0, 1];
     let resultatFibo = 0;
 
