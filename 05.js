@@ -26,7 +26,7 @@ function trouverNbSup (nombre) {
 
 let argument = process.argv[2];
 
-if (isNaN(argument) || argument < 0) {
+if (isNaN(argument) || argument < 0 || process.argv.length !== 3) {
     console.log("-1");
 } else {
     argument = parseInt(argument);
