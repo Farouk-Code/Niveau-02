@@ -15,7 +15,7 @@ function isInTheString(firstString, stringToCompar) {
 }
 
 if (process.argv.length < 4) {
-    console.log("Erreur");
+    console.log("Erreur1");
 } else {
     let firstString = process.argv[2];
     let stringToCompar = process.argv[3];
