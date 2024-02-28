@@ -1,15 +1,23 @@
 // Combinaison de 3 chiffres
 
+// FONCTION
 function combination() {
-    let result = '';
+    const result = []
     for (let i = 0; i <= 9; i++) {
         for (let j = i + 1; j <= 9; j++) {
             for (let k = j + 1; k <= 9; k++) {
-                result += i.toString() + j.toString() + k.toString() + ', ';
+               result.push(i.toString() + j.toString() + k.toString())
             }
         }
     }
-    return result.slice(0, -2);
+    return result
 }
 
-console.log(combination());
+// RESOLUTION
+function showTable () {
+    return console.log(combination())
+}
+
+// AFFICHAGE RESULTAT
+
+showTable()
