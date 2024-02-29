@@ -15,7 +15,7 @@ function combination() {
 
 // RESOLUTION
 function showTable () {
-    return console.log(combination())
+    return console.log(combination().join(', '))
 }
 
 // AFFICHAGE RESULTAT
