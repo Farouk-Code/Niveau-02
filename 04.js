@@ -1,18 +1,46 @@
 // Suite de Fibonacci
 
-if (process.argv.length != 3) {
-    console.log("-1");
-} else if (isNaN(process.argv[2]) || parseInt(process.argv[2]) < 0) {
-    console.log("-1");
-} else {
-    let element = parseInt(process.argv[2]);
-    let tableauFibo = [0, 1];
-    let resultatFibo = 0;
+// FONCTION
 
-    for (let i = 1; i < element; i++) {
-        resultatFibo = tableauFibo[i] + tableauFibo[i - 1];
-        tableauFibo.push(resultatFibo);
+function fiboAtPosition(position) {
+    let fiboTab = [0, 1]
+    let resultFibo = 0
+
+    for (let i = 1; i < position; i++) {
+        resultFibo = fiboTab[i] + fiboTab[i - 1]
+        fiboTab.push(resultFibo)
     }
 
-    console.log(tableauFibo[element]);
+    return fiboTab[position]
 }
+
+
+//GESTION DES ERREURS
+
+function isValidArgument(argument) {
+    if (argument.length !== 1 || isNaN(argument)) {
+        return console.log("-1")
+    } else {
+        return argument
+    }
+}
+
+
+// PARSING
+
+function getArgument() {
+    return process.argv.slice(2)
+}
+
+
+// RESOLUTION
+
+function getFiboAtPosition() {
+    const position = isValidArgument(getArgument())
+    if (!position) {return }
+    return console.log(fiboAtPosition(Number(position)))
+}
+
+// AFFICHAGE RESULATAT
+
+getFiboAtPosition()
