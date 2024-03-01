@@ -1,12 +1,42 @@
 // Arguments à l'envers
 
-if (process.argv.length < 2) {
-    console.log("Erreur");
-} else {
-    let arguments = '';
-    for (let i = process.argv.length - 1; i >= 0; i--) {
-        arguments += (process.argv[i] + '\n');
-    }
+// FONCTIONS
 
-    console.log(arguments);
+function inverseArguments(arguments) {
+    let inverseArg = ""
+    for (let i = arguments.length - 1; i >= 0; i--) {
+        inverseArg += (arguments[i] + '\n')
+    }
+    return inverseArg
 }
+
+
+// GESTION DES ERREURS
+
+function isValidArguments(arguments) {
+    if (arguments.length > 1) {
+        return arguments
+    } else {
+        return console.log("Il faut plus d'un argument !")
+    }
+}
+
+
+// PARSING
+
+function getArguments() {
+    return process.argv.slice(2)
+}
+
+// RESOLUTION
+
+function getInverseArguments() {
+    const arguments = isValidArguments(getArguments())
+    if (!arguments) {return }
+    return console.log(inverseArguments(arguments))
+}
+
+
+// AFFICHAGE RESULTAT
+
+getInverseArguments()
