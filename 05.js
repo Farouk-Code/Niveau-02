@@ -1,12 +1,14 @@
 // Prochain nombre premier
 
-function estPremier(nombre) {
-    if (nombre <= 1) {
+// FONCTIONS
+
+function isPrime(number) {
+    if (number <= 1) {
         return false;
     }
 
-    for (let i = 2; i <= Math.sqrt(nombre); i++) {
-        if (nombre % i === 0) {
+    for (let i = 2; i <= number/2; i++) {
+        if (number % i === 0) {
             return false;
         }
     }
@@ -14,21 +16,43 @@ function estPremier(nombre) {
     return true;
 }
 
-function trouverNbSup (nombre) {
-    let nbSupp = nombre + 1;
+function findSuperiorPrimeNumber (number) {
+    let superiorNumber = number + 1
     while (true) {
-        if (estPremier(nbSupp)) {
-            return nbSupp;
+        if (isPrime(superiorNumber)) {
+            return superiorNumber
         }
-        nbSupp++;
+        superiorNumber++
     }
 }
 
-let argument = process.argv[2];
 
-if (isNaN(argument) || argument < 0 || process.argv.length !== 3) {
-    console.log("-1");
-} else {
-    argument = parseInt(argument);
-    console.log(`Le prochain nombre supérieur est : ${trouverNbSup(argument)}`);
+// GESTION DES ERREURS
+
+function isValidArguments(arguments) {
+    if (arguments.length > 1 || isNaN(arguments) || Number(arguments[0]) < 0) {
+        return console.log("-1")
+    } else {
+        return arguments
+    }
 }
+
+
+// PARSING
+
+function getArgument() {
+    return process.argv.slice(2)
+}
+
+
+// RESOLUTION
+function getSperiorPrimeNumber() {
+    const number = isValidArguments(getArgument())
+    if (!number) {return }
+    return console.log(`Le prochain nombre premier pour ${getArgument()} est : ${findSuperiorPrimeNumber(Number(number))}`)
+}
+
+
+// AFFICHARGE RESULTAT
+
+getSperiorPrimeNumber()
