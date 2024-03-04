@@ -4,7 +4,7 @@
 // FONCTION
 
 function isNumber(arguments) {
-    const regex = /^[0-9 ]+$/
+    const regex = /^[0-9]+$/
     let condition = true
     for (const element of arguments) {
         condition = regex.test(element);
