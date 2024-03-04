@@ -31,7 +31,6 @@ function getArguments() {
 // GESTION DES ERREURS
 
 function isValidArguments(arguments) {
-    // return (arguments.length > 1) ? arguments : console.log("Error")
     if (arguments.length > 1) {
         for (const element of arguments) {
             if (isNaN(element)) {
